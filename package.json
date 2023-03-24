@@ -1,43 +1,70 @@
 {
   "name": "template-frontend",
-  "version": "0.1.0",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "next-dev": "next dev",
+    "sanity-dev": "sanity dev",
+    "next-build": "next build",
+    "sanity-build": "sanity build",
+    "next-start": "next start",
+    "sanity-start": "sanity start",
+    "lint": "next lint",
+    "sanity-deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
+  "keywords": [
+    "sanity",
+    "next js"
+  ],
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@next/font": "13.1.6",
+    "@portabletext/react": "^2.0.2",
+    "@sanity/eslint-config-studio": "^2.0.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.0.0",
     "@tippyjs/react": "^4.2.6",
-    "@types/node": "18.14.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@types/react-slick": "^0.23.10",
+    "@types/styled-components": "^5.1.26",
+    "autoprefixer": "^10.4.14",
+    "axios": "^1.3.4",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "framer-motion": "^9.0.4",
     "next": "13.1.6",
+    "next-sanity": "^4.1.5",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.6",
     "react": "18.2.0",
     "react-countup": "^6.4.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-intersection-observer": "^9.4.2",
+    "react-is": "^18.2.0",
+    "react-portable-text": "^0.6.0",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.1",
     "react-toggle-dark-mode": "^1.1.1",
+    "sanity": "^3.0.0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.0",
+    "tailwindcss": "^3.2.7",
     "typescript": "4.9.5",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
-    "@types/react-slick": "^0.23.10",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "@types/node": "^18.15.5"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
   }
 }

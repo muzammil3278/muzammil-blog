@@ -11,7 +11,7 @@ export default function index() {
   return (
     <>
       <span className="py-3 mt-5 px-6 font-bold text-lg bg-red-500 block w-full text-white">
-        Latest News
+        The Best
       </span>
       <div className="grid lg:grid-cols-2 gird-cols-1 gap-4 bg-white">
         <div className=" p-5">

@@ -5,7 +5,7 @@ import Social from "@/components/blog/left/social";
 import Tag from "@/components/blog/left/tag";
 import Cat from "@/components/blog/left/cat";
 import Slider from "@/components/blog/left/slider";
-import Ads from "@/components/blog/left/ads";
+import Post from "@/components/blog/left/post";
 import Form from "@/components/blog/left/form";
 
 export default function index() {
@@ -17,7 +17,7 @@ export default function index() {
       <Tag />
       <Cat />
       <Slider />
-      <Ads />
+      <Post />
       <Form />
     </>
   );

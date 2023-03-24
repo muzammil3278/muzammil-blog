@@ -249,17 +249,22 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Blogs',
     children: [
       {
-        label: 'Web development',
+        label: 'Coding',
         subLabel: 'Find your dream design job',
         href: '/web',
       },
       {
-        label: 'Graphic Designing',
+        label: 'How to',
         subLabel: 'An exclusive list for contract work',
         href: '/graphic',
       },
       {
-        label: 'Data Entry',
+        label: 'The Best',
+        subLabel: 'An exclusive list for contract work',
+        href: '/data',
+      },
+      {
+        label: 'Technology',
         subLabel: 'An exclusive list for contract work',
         href: '/data',
       },
