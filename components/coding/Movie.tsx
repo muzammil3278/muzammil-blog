@@ -43,6 +43,7 @@ export default function Movie({movie}: {movie: SanityDocument}) {
           <ul className="flex">
             {movie.tag.map(function (tag: data) {
               return (
+                // eslint-disable-next-line react/jsx-key
                 <Tag    
                 title={tag.title}
                 slug={tag.slug}

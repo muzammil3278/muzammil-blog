@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import Image from "next/image";
 
 // bottom to up
 const head = {
@@ -29,9 +30,12 @@ const second = {
 };
 
 export default function index() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const control = useAnimation();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [ref, inView] = useInView();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (inView) {
       control.start("visible");
@@ -60,7 +64,11 @@ export default function index() {
               <div 
               className="contact-info relative flex p-8 border-2 border-solid border-gray-100 mb-7 transition-all hover:border-transparent ">
                 <div className="contact-icon relative w-12 h-12 flex justify-center items-center border-2 border-solid border-gray-300 ">
-                  <img src="/question/location.png" />
+                  <Image src="/question/location.png"   
+                   height={999}
+        width={999}
+        alt=""
+        title=""/>
                 </div>
                 <div className="contact-text relative flex flex-col pl-4">
                   <h3 className="text-gray-400 font-normal text-xl">
@@ -72,7 +80,11 @@ export default function index() {
               <div 
               className="contact-info relative flex p-8 border-2 border-solid border-gray-100 mb-7 transition-all hover:border-transparent ">
                 <div className="contact-icon relative w-12 h-12 flex justify-center items-center border-2 border-solid border-gray-300 ">
-                  <img src="/question/phone.png" />
+                  <Image src="/question/phone.png" 
+                     height={90}
+                     width={90}
+                     alt=""
+                     title="" />
                 </div>
                 <div className="contact-text relative flex flex-col pl-4">
                   <h3 className="text-gray-400 font-normal text-xl">
@@ -83,7 +95,12 @@ export default function index() {
               </div>
               <div  className="contact-info relative flex p-8 border-2 border-solid border-gray-100 mb-7 transition-all hover:border-transparent ">
                 <div className="contact-icon relative w-12 h-12 flex justify-center items-center border-2 border-solid border-gray-300 ">
-                  <img src="/question/mail.png" />
+                  <Image src="/question/mail.png" 
+                     height={90}
+                     width={90}
+                     alt=""
+                     title=""
+                  />
                 </div>
 
                 <div className="contact-text relative flex flex-col pl-4">

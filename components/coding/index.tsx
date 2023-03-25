@@ -10,6 +10,8 @@ import {
 import Link from "next/link";
 import type { SanityDocument } from "@sanity/client";
 import Content from '@/components/blog/content'
+import Image from "next/image";
+
 
 const builder = imageUrlBuilder(client);
 
@@ -19,9 +21,10 @@ export default function coding({ movies }: { movies: SanityDocument[] }) {
    
   {/* <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 "> */}
         {movies.map((movie) => (
+         // eslint-disable-next-line react/jsx-key
          <div className=" p-5">
          <div className="img">
-           <img
+           <Image
              className="w-full"
           src={builder.image(movie.poster).url()}
              alt={movie.title}

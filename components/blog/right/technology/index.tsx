@@ -1,4 +1,5 @@
-import { Button, HStack } from "@chakra-ui/react";
+import { Button, HStack, Link } from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
 import {
   FaComment,
@@ -16,34 +17,38 @@ export default function index() {
       <div className="grid lg:grid-cols-2 gird-cols-1 gap-4 bg-white">
         <div className=" p-5">
           <div className="img">
-            <img
+            <Image
+
               className="w-full"
               src="https://preview.colorlib.com/theme/magazine/img/top-post1.jpg"
-              alt=""
+                  alt=""
+        title=""
+        height="999"
+        width="999"
             />
           </div>
           <div className="content bg-teal-50 p-6">
-            <a href="image-post.html">
+            <Link href="image-post.html">
               <h3 className="text-black text-2xl font-bold pt-4">
                 A Discount Toner Cartridge Is Better Than Ever.
               </h3>
-            </a>
+            </Link>
             <ul className="meta flex text-black py-4">
               <li>
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaUserGraduate />
                   </span>
                   Mark wiens
-                </a>
+                </Link>
               </li>
               <li className="pl-5">
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaCalendarAlt />
                   </span>
                   03 April, 2018
-                </a>
+                </Link>
               </li>
             </ul>
             <p>
@@ -53,54 +58,57 @@ export default function index() {
             </p>
             <div className="meta flex justify-between text-black py-4">
               <span>
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaUserGraduate />
                   </span>
                   Read More
-                </a>
+                </Link>
               </span>
               <span className="pl-5">
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaCalendarAlt />
                   </span>
                   Folder
-                </a>
+                </Link>
               </span>
             </div>
           </div>
         </div>
         <div className=" p-5">
           <div className="img">
-            <img
+            <Image
               className="w-full"
               src="https://preview.colorlib.com/theme/magazine/img/top-post1.jpg"
               alt=""
+              title=""
+              height="999"
+              width="999"
             />
           </div>
           <div className="content bg-teal-50 p-6">
-            <a href="image-post.html">
+            <Link href="image-post.html">
               <h3 className="text-black text-2xl font-bold pt-4">
                 A Discount Toner Cartridge Is Better Than Ever.
               </h3>
-            </a>
+            </Link>
             <ul className="meta flex text-black py-4">
               <li>
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaUserGraduate />
                   </span>
                   Mark wiens
-                </a>
+                </Link>
               </li>
               <li className="pl-5">
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaCalendarAlt />
                   </span>
                   03 April, 2018
-                </a>
+                </Link>
               </li>
             </ul>
             <p>
@@ -110,20 +118,20 @@ export default function index() {
             </p>
             <div className="meta flex justify-between text-black py-4">
               <span>
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaUserGraduate />
                   </span>
                   Read More
-                </a>
+                </Link>
               </span>
               <span className="pl-5">
-                <a href="#" className="flex items-center">
+                <Link href="#" className="flex items-center">
                   <span className="pr-1 text-red-500">
                     <FaCalendarAlt />
                   </span>
                   Folder
-                </a>
+                </Link>
               </span>
             </div>
           </div>
