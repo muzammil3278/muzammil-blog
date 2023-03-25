@@ -4,7 +4,7 @@ import {urlFor} from '../../../libs/image.builder'
 import imageUrlBuilder from '@sanity/image-url'
 import {FaCalendarAlt, FaUserGraduate} from 'react-icons/fa'
 import Link from 'next/link'
-
+import Image from 'next/image'
 const builder = imageUrlBuilder(client)
 
 interface data {
@@ -27,7 +27,13 @@ export default function author(props: data) {
         /> */}
        {/* <img src={builder.image(props.poster).width(200).url()} />
         */}
-        <img src={urlFor(props.poster).width(500).height(300).url()}></img>
+        <Image src={urlFor(props.poster).width(500).height(300).url()}
+        alt=""
+        title=""
+        height="300"
+        width="300"
+        
+        />
     </div>
     <div className="text col-span-2">
       <span className="text-2xl font-bolb">{props.author}</span>

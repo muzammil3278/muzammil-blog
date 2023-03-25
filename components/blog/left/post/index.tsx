@@ -3,7 +3,8 @@ import {
   FaCalendarAlt,
   FaUserGraduate,
 } from "react-icons/fa";
-
+import Link from "next/link";
+import Image from 'next/image'
 export default function index() {
   return (
     <>
@@ -13,8 +14,14 @@ export default function index() {
           Popular Post: 
         </span>
         <div className=" p-2 mb-5 flex ">
-         <div className="img"> <img src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
-         className="h-20 w-24" /></div>
+         <div className="img"> <Image 
+         src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
+         className="h-20 w-24"
+         height={20}
+         width={40}
+         alt=""
+         title=""
+          /></div>
          <div className="text flex flex-col ml-5">
           <div><h4 className="text-base font-semibold">How we download vscode for windows?</h4></div>
           <div className="flex items-center">
@@ -24,8 +31,14 @@ export default function index() {
          </div>
         </div>
         <div className=" p-2 mb-5 flex ">
-         <div className="img"> <img src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
-         className="h-20 w-24" /></div>
+         <div className="img"> <Image 
+         src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
+         className="h-20 w-24"
+         height={20}
+         width={40}
+         alt=""
+         title=""
+          /></div>
          <div className="text flex flex-col ml-5">
           <div><h4 className="text-base font-semibold">How we download vscode for windows?</h4></div>
           <div className="flex items-center">
@@ -35,8 +48,14 @@ export default function index() {
          </div>
         </div>
         <div className=" p-2 mb-5 flex ">
-         <div className="img"> <img src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
-         className="h-20 w-24" /></div>
+         <div className="img"> <Image 
+         src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
+         className="h-20 w-24"
+         height={20}
+         width={40}
+         alt=""
+         title=""
+          /></div>
          <div className="text flex flex-col ml-5">
           <div><h4 className="text-base font-semibold">How we download vscode for windows?</h4></div>
           <div className="flex items-center">
@@ -46,8 +65,14 @@ export default function index() {
          </div>
         </div>
         <div className=" p-2 mb-5 flex ">
-         <div className="img"> <img src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
-         className="h-20 w-24" /></div>
+         <div className="img"> <Image 
+         src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
+         className="h-20 w-24"
+         height={20}
+         width={40}
+         alt=""
+         title=""
+          /></div>
          <div className="text flex flex-col ml-5">
           <div><h4 className="text-base font-semibold">How we download vscode for windows?</h4></div>
           <div className="flex items-center">
@@ -57,8 +82,14 @@ export default function index() {
          </div>
         </div>
         <div className=" p-2 mb-5 flex ">
-         <div className="img"> <img src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
-         className="h-20 w-24" /></div>
+         <div className="img"> <Image 
+         src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
+         className="h-20 w-24"
+         height={20}
+         width={40}
+         alt=""
+         title=""
+          /></div>
          <div className="text flex flex-col ml-5">
           <div><h4 className="text-base font-semibold">How we download vscode for windows?</h4></div>
           <div className="flex items-center">
@@ -67,17 +98,7 @@ export default function index() {
           </div>
          </div>
         </div>
-        <div className=" p-2 mb-5 flex ">
-         <div className="img"> <img src="https://preview.colorlib.com/theme/magazine/img/sidebar-ads.jpg" 
-         className="h-20 w-24" /></div>
-         <div className="text flex flex-col ml-5">
-          <div><h4 className="text-base font-semibold">How we download vscode for windows?</h4></div>
-          <div className="flex items-center">
-            <span className="flex mr-4 justify-center items-center"><FaUserGraduate className="mr-2"/> fdnf</span>
-            <span className="flex justify-center items-center"><FaCalendarAlt className="mr-2"/> fdnf</span>
-          </div>
-         </div>
-        </div>
+       
       </div>
     </>
   );
