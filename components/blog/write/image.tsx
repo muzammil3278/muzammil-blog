@@ -16,8 +16,8 @@ export default function image( props: data ) {
         <Image
           src={builder.image(props.poster).url()}
           className="h-full w-full"
-          height="999"
-          width="999"
+          height={999}
+          width={999}
           alt={props.title}
           title={props.title}
         />

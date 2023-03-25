@@ -28,6 +28,8 @@ export default function coding({ movies }: { movies: SanityDocument[] }) {
           src={builder.image(movie.poster).url()}
              alt={movie.title}
              title={movie.title}
+             height="999"
+             width="999"
            />
          </div>
          <Content 

@@ -57,6 +57,7 @@ type PageProps = {
     author: any;
     category: any;
     title: string;
+    poster: string;
     movie: SanityDocument;  
     post: Post;
   };
@@ -67,7 +68,7 @@ export default function Page({ post }: PageProps) {
       <div className="col-span-2">
         {/* {post.title} */}
         <main className="bg-white p-3">
-        {/* <Poster poster={movie.poster} title={movie.title} /> */}
+        <Poster poster={post.poster} title={post.title} />
         <div className="context pl-2">
           <Heading
             date={post.publishedAt}
