@@ -8,6 +8,7 @@ import { client } from "../../libs/sanity.clients";
 import { PreviewSuspense } from "next-sanity/preview";
 
 const PreviewMovies = lazy(() => import("@/components/PreviewMovies"));
+
 const query = groq`*[_type == "posts" && filter == "coding"  && defined(slug.current)]{
   _id,
   title, 
@@ -44,7 +45,6 @@ export default function coding({
     </PreviewSuspense>
   ) : (
     <>
-    {/* <Movies movies={data} /> */}
     <div className='bg-white'>
     <span className="py-3 mt-5 px-6 font-bold text-lg bg-red-500 block w-full text-white">
         Coding

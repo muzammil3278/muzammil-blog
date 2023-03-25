@@ -19,7 +19,6 @@ export default function coding({ movies }: { movies: SanityDocument[] }) {
   return (
     <>
    
-  {/* <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 "> */}
         {movies.map((movie) => (
          // eslint-disable-next-line react/jsx-key
          <div className=" p-5">

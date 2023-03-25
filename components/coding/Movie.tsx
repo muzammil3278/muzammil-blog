@@ -17,9 +17,7 @@ const builder = imageUrlBuilder(client)
 export default function Movie({movie}: {movie: SanityDocument}) {
   return (
     <>
-      <Head>
-        <title>{movie.title}</title>
-      </Head>
+
       <main className="bg-white p-3">
         <Poster poster={movie.poster} title={movie.title} />
         <div className="context pl-2">
@@ -32,14 +30,14 @@ export default function Movie({movie}: {movie: SanityDocument}) {
             title={movie.title}
           />
         </div>
-
+{/* 
         <div className="p-4  leading-10 tracking-wide">
           <p>
             <PortableText value={movie.body} />
           </p>
-        </div>
+        </div> */}
         {/* <Tag /> */}
-        <div className="tag">
+        {/* <div className="tag"> */}
           {/* <ul className="flex">
             {movie.tag.map(function (tag: data) {
               return (
@@ -51,16 +49,16 @@ export default function Movie({movie}: {movie: SanityDocument}) {
               )
             })}
           </ul> */}
-        </div>
+        {/* </div> */}
         {/* ads */}
-        <Banner />
+        {/* <Banner /> */}
         {/* author */}
-        <Author 
+        {/* <Author 
         author={movie.author.name}
         poster={movie.author.poster}
         bio={movie.author.bio}
         date={movie.publishedAt}
-         />
+         /> */}
       </main>
     </>
   )

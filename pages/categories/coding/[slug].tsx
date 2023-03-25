@@ -2,11 +2,12 @@ import { SanityDocument } from "@sanity/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import { client } from "../../../libs/sanity.clients";
-import Movie from "../../../components/coding/Movie";
+import Movie from "../../../components/coding/Movie"
 import Left from "@/components/blog/left"
 
 
 const query = groq`*[_type == "posts" && slug.current == $slug][0]{
+  _id,
   title, 
   body,
   poster,

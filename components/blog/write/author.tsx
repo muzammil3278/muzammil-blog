@@ -20,13 +20,6 @@ export default function author(props: data) {
     <>
       <div className="author grid lg:grid-cols-3 gird-cols-1 gap-4 py-4 ">
     <div className="image">
-    {/* <img
-          src={builder.image(props.poster).url()}
-          className="rounded-full h-40 w-40 flex justify-center items-center mx-auto"
-          alt={props.author}
-        /> */}
-       {/* <img src={builder.image(props.poster).width(200).url()} />
-        */}
         <Image src={urlFor(props.poster).width(500).height(300).url()}
         alt=""
         title=""
