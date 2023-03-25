@@ -25,26 +25,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }`
   );
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const queryParams = { slug: params?.slug ?? `` };
 
-  const movie = await client.fetch(query, queryParams);
+  const post = await client.fetch(query, queryParams);
 
   return {
     props: {
-      data: { movie },
+      post,
     },
   };
 };
 
-export default function Page({ data }: { data: { movie: SanityDocument } }) {
+export default function Page({ post }: { post: {
+  title: string; movie: SanityDocument 
+} }) {
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
       <div className="col-span-2">
-        <Movie movie={data.movie} />
+        {/* <Movie movie={post.movie} /> */}
+        {post.title}
         </div>
       <div><Left /></div>
     </div>

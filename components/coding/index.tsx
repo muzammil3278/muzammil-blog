@@ -21,7 +21,7 @@ export default function coding({ movies }: { movies: SanityDocument[] }) {
    
         {movies.map((movie) => (
          // eslint-disable-next-line react/jsx-key
-         <div className=" p-5">
+         <div className=" p-5" key={movie._id}>
          <div className="img">
            <Image
              className="w-full"

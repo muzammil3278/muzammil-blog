@@ -30,10 +30,7 @@ export const getStaticProps = async ({ preview = false }) => {
   return { props: { preview, data } };
 };
 
-export default function coding({
-  preview,
-  data,
-}: {
+export default function coding({preview,data,}: {
   preview: Boolean;
   data: SanityDocument[];
 }) {
