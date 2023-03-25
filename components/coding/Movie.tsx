@@ -63,8 +63,3 @@ export default function Movie({movie}: {movie: SanityDocument}) {
     </>
   )
 }
-
-interface data {
-  title: string,
-  slug: string,
-}

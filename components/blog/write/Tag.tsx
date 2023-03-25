@@ -9,7 +9,7 @@ interface data {
 export default function Tag(props: data) {
   return (
     <>
-      <li className="mr-4">
+      <li className="mr-4" >
         <Link href={'/' + props.slug} className="bg-red-400 text-white px-3 py-2 rounded">
           {props.title}
         </Link>

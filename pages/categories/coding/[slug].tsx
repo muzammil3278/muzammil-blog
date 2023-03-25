@@ -27,7 +27,7 @@ const query = groq`*[_type == "posts" && slug.current == $slug][0]{
   slug,
   author->{name,bio,poster,slug},  
   category->{title,slug},
-  tag[]->{title, "slug": slug.current}
+  tag[]->{_id,title, "slug": slug.current}
   
 }`;
 
@@ -54,7 +54,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 type PageProps = {
   post: {
-    body: string;
+    tag: string;
+    body: [];
     publishedAt: string;
     author: any;
     category: any;
@@ -80,28 +81,36 @@ export default function Page({ post }: PageProps) {
             title={post.title}
           />
         </div>
-{/* 
+
         <div className="p-4  leading-10 tracking-wide">
           <p>
-            {post.body} 
+          <PortableText
+        value={post.body}
+      />
           </p>
-        </div> */}
+        </div>
       
-       {/* <div className="tag"> 
+       <div className="tag"> 
         <ul className="flex">
-            {movie.tag.map(function (tag: data) {
+            {/* {post.tag.map(function (tag: data) {
               return (
-                // eslint-disable-next-line react/jsx-key
                 <Tag    
+                key={tag._id}
                 title={tag.title}
                 slug={tag.slug}
                  />
               )
-            })}
+            })} */}
+               {/* {post.tag.map((tag: data) => (
+         <Tag    
+         title={tag.title}
+         slug={tag.slug}
+          />>
+      ))} */}
           </ul> 
-       </div>  */}
+       </div> 
         {/* ads */}
-        <Banner />
+        {/* <Banner /> */}
         {/* author */}
         <Author 
         author={post.author.name}
@@ -114,6 +123,11 @@ export default function Page({ post }: PageProps) {
       <div><Left /></div>
     </div>
   )
+}
+
+interface data {
+  title: string,
+  slug: string,
 }
 
 
