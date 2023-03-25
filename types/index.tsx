@@ -27,3 +27,30 @@ export interface Post {
     };
   };
 }
+
+export interface Post {
+  _id: string;
+  title: string;
+  // body: object[];
+  poster: string;
+  // publishedAt: string;
+  // slug: {
+  //   current: string;
+  // }; 
+  // author: {
+  //   image: string;
+  //   name: string;
+  //   bio: string;
+  //   slug: {
+  //     current: string;
+  //   };
+  // };
+  // category: {
+  //   title: string;
+  //   description: string;
+  //   slug: {
+  //     current: string;
+  //   };
+  // };
+
+}
