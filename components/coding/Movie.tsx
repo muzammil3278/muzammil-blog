@@ -8,7 +8,6 @@ import {client} from '../../libs/sanity.clients'
 
 import Poster from '@/components/blog/write/image'
 import Heading from '@/components/blog/write/head'
-import Tag from '@/components/blog/write/Tag'
 import Banner from '@/components/coding/banner'
 import Author from '@/components/blog/write/author'
 

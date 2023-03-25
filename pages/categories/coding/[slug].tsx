@@ -2,32 +2,27 @@ import {SanityDocument} from '@sanity/client'
 import {GetStaticPaths, GetStaticProps} from 'next'
 import {groq} from 'next-sanity'
 import {client} from '../../../libs/sanity.clients'
-import Movie from '../../../components/coding/Movie'
 import Left from '@/components/blog/left'
 import {PortableText} from '@portabletext/react'
-import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
-import imageUrlBuilder from '@sanity/image-url'
-import {Post} from '@/types/index'
 import Poster from '@/components/blog/write/image'
 import Heading from '@/components/blog/write/head'
-import Tag from '@/components/blog/write/Tag'
 import Banner from '@/components/coding/banner'
 import Author from '@/components/blog/write/author'
-
-
-
+import imageUrlBuilder from "@sanity/image-url";
+const builder = imageUrlBuilder(client);
 const query = groq`*[_type == "posts" && slug.current == $slug][0]{
   _id,
   title, 
   body,
   poster,
+  overview,
   publishedAt,
-  slug,
+  "slug":slug.current,
   author->{name,bio,poster,slug},  
-  category->{title,slug},  
-  "tag": tag[]->{title},
+  category->{title,"slug": slug.current},  
+  "tag": tag[]->{title,"slug": slug.current},
   
 }`
 
@@ -63,85 +58,91 @@ type PageProps = {
     publishedAt: string
     author: any
     category: any
+    overview: string
     title: string
     poster: string
+    slug: string
     movie: SanityDocument
-    post: Post
   }
 }
+const DOMAIN = 'https://www.jimraptis.com'
+const canonical = DOMAIN
+
 export default function Page({post}: PageProps) {
-  const {
-    title = 'Missing title',
-    category,
-    author,
-    publishedAt,
-    tag,
-    poster,
-    body = []
-  } = post
+  const {title = 'title', category, author, publishedAt, tag, poster, body = []} = post
   return (
-    <div className="grid grid-cols-3 gap-4 p-4">
-      <div className="col-span-2">
-        <main className="bg-white p-3">
-          <Poster poster={poster} title={title} />
-          <div className="context pl-2">
-            <Heading
-              date={publishedAt}
+    <>
+     {/* content=*/}
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.overview} />
+        <meta key="og_title" property="og:title" content={post.title} />
+        <meta key="og_description" property="og:description" content={post.overview} />
+        <meta key="og_url" property="og:url" 
+        // content={canonical ?? DOMAIN}  
+        // {`${title} | ${siteName}`} 
+        content={post.slug} 
+        />
+        <meta key="og_image" property="og:image" 
+        // content={post.poster} 
+         content={builder.image(post.poster).url()}
+        />
+        <meta key="og_image:alt" property="og:image:alt" content={post.title} />
+
+        <meta name="robots" content="index,follow" />
+        <meta key="twitter:title" property="twitter:title" content={post.title} />
+        <meta key="twitter:description" property="twitter:description" content={post.overview} />
+        <link rel="canonical" href={canonical ?? DOMAIN} />
+
+      </Head>
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 p-4">
+        <div className="col-span-2">
+          <main className="bg-white p-3">
+            <Poster poster={poster} title={title} />
+            <div className="context pl-2">
+              <Heading
+                date={publishedAt}
+                author={author.name}
+                authorlink={author.slug.current}
+                cat={category.title}
+                catlink={category.slug}
+                title={title}
+              />
+            </div>
+
+            <div className="p-4  leading-10 tracking-wide">
+              <p>
+                <PortableText value={body} />
+              </p>
+            </div>
+
+            <div className="tag">
+              <ul className="flex">
+                {tag && (
+                  <>
+                    {tag.map((tags: any) => (
+                      <li key={tags}>
+                        <Link href={tags.slug}>{tags.title}</Link>
+                      </li>
+                    ))}
+                  </>
+                )}
+              </ul>
+            </div>
+            {/* <Banner /> */}
+            <Author
               author={author.name}
-              authorlink={author.slug.current}
-              cat={category.title}
-              catlink={category.slug.current}
-              title={title}
+              poster={author.poster}
+              bio={author.bio}
+              date={publishedAt}
             />
-          </div>
-
-          <div className="p-4  leading-10 tracking-wide">
-            <p>
-              <PortableText value={body} />
-            </p>
-          </div>
-
-          <div className="tag">
-            <ul className="flex">
-            {tag && (
-        <ul>
-          Posted in
-          {tag.map((tags:any) => <li key={tags}>{tags.title}</li>)}
-        </ul>
-      )}
-            {/* {post.tag.map(tag => <li>{tag.title}</li>)} */}
-              {/* {post.tag.map(function (tag: data) {
-              return (
-                <Tag    
-                key={tag._id}
-                title={tag.title}
-                slug={tag.slug}
-                 />
-              )
-            })} */}
-              {/* {post.tag.map((tag: data) => (
-         <Tag    
-         title={tag.title}
-         slug={tag.slug}
-          />>
-      ))} */}
-            </ul>
-          </div>
-          {/* ads */}
-          <Banner />
-          {/* author */}
-          <Author
-            author={author.name}
-            poster={author.poster}
-            bio={author.bio}
-            date={publishedAt}
-          />
-        </main>
+          </main>
+        </div>
+        <div>
+          <Left />
+        </div>
       </div>
-      <div>
-        <Left />
-      </div>
-    </div>
+    </>
   )
 }
 

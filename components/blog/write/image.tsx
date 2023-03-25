@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 const builder = imageUrlBuilder(client);
 import Link from 'next/link'
 import Image from 'next/image'
+
 interface data {
   poster:string,
   title:string

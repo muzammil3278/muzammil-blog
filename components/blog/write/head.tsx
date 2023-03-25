@@ -3,7 +3,6 @@ import {client} from '../../../libs/sanity.clients'
 import imageUrlBuilder from '@sanity/image-url'
 import {FaCalendarAlt, FaUserGraduate} from 'react-icons/fa'
 import Link from 'next/link'
-
 const builder = imageUrlBuilder(client)
 
 interface data {
