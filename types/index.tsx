@@ -54,3 +54,15 @@ export interface Post {
   // };
 
 }
+export interface SanityBlock {
+  _key: string;
+  _type: 'block' | 'image' | 'code';
+  style?: 'normal' | 'h1' | 'h2' | 'h3' | 'blockquote';
+  children: {
+    _key: string;
+    _type: 'span';
+    text: string;
+    marks?: ('strong' | 'em')[];
+  }[];
+  // add additional properties for other block types if needed
+}

@@ -15,6 +15,7 @@ import Heading from '@/components/blog/write/head'
 import Tag from '@/components/blog/write/Tag'
 import Banner from '@/components/coding/banner'
 import Author from '@/components/blog/write/author'
+
 import { ReactNode } from "react";
 
 const query = groq`*[_type == "posts" && slug.current == $slug][0]{
@@ -53,6 +54,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 type PageProps = {
   post: {
+    body: string;
     publishedAt: string;
     author: any;
     category: any;
@@ -66,7 +68,6 @@ export default function Page({ post }: PageProps) {
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
       <div className="col-span-2">
-        {/* {post.title} */}
         <main className="bg-white p-3">
         <Poster poster={post.poster} title={post.title} />
         <div className="context pl-2">
@@ -79,10 +80,10 @@ export default function Page({ post }: PageProps) {
             title={post.title}
           />
         </div>
-
-        {/* <div className="p-4  leading-10 tracking-wide">
+{/* 
+        <div className="p-4  leading-10 tracking-wide">
           <p>
-            <PortableText value={movie.body} />
+            {post.body} 
           </p>
         </div> */}
       
@@ -100,14 +101,14 @@ export default function Page({ post }: PageProps) {
           </ul> 
        </div>  */}
         {/* ads */}
-        {/* <Banner /> */}
+        <Banner />
         {/* author */}
-        {/* <Author 
-        author={movie.author.name}
-        poster={movie.author.poster}
-        bio={movie.author.bio}
-        date={movie.publishedAt}
-         /> */}
+        <Author 
+        author={post.author.name}
+        poster={post.author.poster}
+        bio={post.author.bio}
+        date={post.publishedAt}
+         />
       </main>
         </div>
       <div><Left /></div>

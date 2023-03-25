@@ -60,12 +60,13 @@ export default defineType({
       title: 'Published at',
       type: 'date',
     }),
-    defineField({
+   
+    ({
+      title: 'body', 
       name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+      type: 'array', 
+      of: [{type: 'block'}]
     }),
-    
     defineField({
       name: 'recent',
       title: 'Recent',

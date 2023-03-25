@@ -30,12 +30,12 @@ export default function Movie({movie}: {movie: SanityDocument}) {
             title={movie.title}
           />
         </div>
-{/* 
+
         <div className="p-4  leading-10 tracking-wide">
           <p>
             <PortableText value={movie.body} />
           </p>
-        </div> */}
+        </div>
         {/* <Tag /> */}
         {/* <div className="tag"> */}
           {/* <ul className="flex">
