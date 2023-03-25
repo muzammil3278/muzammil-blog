@@ -40,7 +40,7 @@ export default function Movie({movie}: {movie: SanityDocument}) {
         </div>
         {/* <Tag /> */}
         <div className="tag">
-          <ul className="flex">
+          {/* <ul className="flex">
             {movie.tag.map(function (tag: data) {
               return (
                 // eslint-disable-next-line react/jsx-key
@@ -50,7 +50,7 @@ export default function Movie({movie}: {movie: SanityDocument}) {
                  />
               )
             })}
-          </ul>
+          </ul> */}
         </div>
         {/* ads */}
         <Banner />
