@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 import { 
   FaComment, 
@@ -9,10 +10,11 @@ export default function index() {
     <div className="w-full relative px-1 h-full ">
     <div className="image-thumb relative overflow-hidden">
       <div className="overlay overlay-bg"></div>
-      <img
+      <Image
         className="img-fluid-left img-fluid"
         src="https://preview.colorlib.com/theme/magazine/img/top-post1.jpg"
         alt=""
+        title=""
       />
     </div>
     <div className="top-post-details absolute bottom-8 left-10">

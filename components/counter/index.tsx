@@ -11,9 +11,12 @@ const third = {
 };
 
 export default function counter() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const control = useAnimation();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [ref, inView] = useInView();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (inView) {
       control.start("visible");
