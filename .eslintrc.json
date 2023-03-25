@@ -1,7 +1,11 @@
 {
-  "root": true,
-  "extends": ["next/core-web-vitals,@sanity/eslint-config-studio"],
-  "plugins": ["testing-library"],
-  "overrides": [
-  ]
+  "extends": ["next/core-web-vitals"]
 }
+
+
+// "plugins": ["testing-library"],
+// "overrides": [
+// ]
+// "root": true,
+
+// "extends": ["next/core-web-vitals,@sanity/eslint-config-studio"]
