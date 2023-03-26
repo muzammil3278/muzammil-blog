@@ -4,11 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
+
 # local env files
 .env*.local
-.env
 *.env
 /.env
+.env
+.env.*
+
 # testing
 /coverage
 
