@@ -8,7 +8,7 @@ import { PreviewSuspense } from "next-sanity/preview";
 
 const PreviewMovies = lazy(() => import("@/components/PreviewMovies"));
 
-const query = groq`*[_type == "posts" && filter == "how to"  && defined(slug.current)]{
+const query = groq`*[_type == "posts" && filter == "the best"  && defined(slug.current)]{
   _id,
   title, 
   slug,
@@ -43,7 +43,7 @@ export default function howTo({preview,data,}: {
     <>
     <div className='bg-white'>
     <span className="py-3 mt-5 px-6 font-bold text-lg bg-red-500 block w-full text-white">
-        How To
+        The Best
       </span>
        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 "> 
       

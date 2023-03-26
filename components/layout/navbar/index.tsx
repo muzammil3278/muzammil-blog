@@ -251,23 +251,23 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Coding',
         subLabel: 'Find your dream design job',
-        href: '/web',
+        href: '/categories/coding',
       },
       {
         label: 'How to',
         subLabel: 'An exclusive list for contract work',
-        href: '/graphic',
+        href: '/categories/how-to',
       },
       {
         label: 'The Best',
         subLabel: 'An exclusive list for contract work',
-        href: '/data',
+        href: '/categories/the-best',
       },
       {
         label: 'Technology',
         subLabel: 'An exclusive list for contract work',
-        href: '/data',
-      },
+        href: '/',
+      }
     ],
   },
 ];
