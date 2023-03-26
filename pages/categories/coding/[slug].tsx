@@ -95,9 +95,9 @@ export default function Page({post}: PageProps) {
         <link rel="canonical" href={canonical ?? DOMAIN} />
 
       </Head>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 p-4">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 md:p-4 p-1">
         <div className="col-span-2">
-          <main className="bg-white p-3">
+          <main className="bg-white md:p-3 p-1">
             <Poster poster={poster} title={title} />
             <div className="context pl-2">
               <Heading
