@@ -1,6 +1,5 @@
 import React from 'react'
 import Coding from '@/components/coding'
-
 import { lazy } from "react";
 import { groq } from "next-sanity";
 import type { SanityDocument } from "@sanity/client";

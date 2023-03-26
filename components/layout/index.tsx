@@ -13,11 +13,11 @@ export default function Layout({ children }: DashboardLayoutProps) {
   return (
     <>
       {/* <Fixed /> */}
-      {/* <Header /> */}
-      {/* <Navbar /> */}
+      <Header />
+      <Navbar />
       {children}
-      {/* <Newsletter /> */}
-      {/* <Footer /> */}
+      <Newsletter />
+      <Footer />
     </>
   );
 }
