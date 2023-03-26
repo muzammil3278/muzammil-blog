@@ -13,7 +13,7 @@ export default defineConfig({
   name: 'Blog-content-Studio',
   title: 'Blog-content-Studio',
 
-projectId : "qg8dvno7",
+projectId,
   dataset,
 
   plugins: [deskTool(), visionTool(),vercelDeployTool(),],
