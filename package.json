@@ -11,8 +11,7 @@
     "sanity-start": "sanity start",
     "lint": "next lint",
     "sanity-deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy",
-    "vercel-build": "npm run prepare && next build"
+    "deploy-graphql": "sanity graphql deploy"
   },
   "keywords": [
     "sanity",
