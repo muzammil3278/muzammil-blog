@@ -65,7 +65,7 @@ type PageProps = {
     movie: SanityDocument
   }
 }
-const DOMAIN = 'https://www.jimraptis.com'
+const DOMAIN = 'https://muzammil-blog.vercel.app/'
 const canonical = DOMAIN
 
 export default function Page({post}: PageProps) {
