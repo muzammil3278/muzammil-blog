@@ -66,3 +66,50 @@ export interface SanityBlock {
   }[];
   // add additional properties for other block types if needed
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// blog => written => poster 
+export interface ImageT {
+  poster:string,
+  title:string
+}
+// blog card 
+export interface BlogCardWrite {
+  title: string
+  authorLink: string
+  author: string
+  cat: string
+  catlink: string
+  date: string
+}
+export interface BlogCard {
+  link: string
+  title: string
+  authorLink: string
+  authorname: string
+  date: string
+  overview: string
+  taglink: string
+  tag: string 
+  authorlink: string
+  author: string
+  cat: string
+  catlink: string
+}
+// cat card 
+export interface  CatCard {
+  title: string
+  description: string
+  poster: string
+  slug: string
+}

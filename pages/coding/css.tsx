@@ -5,16 +5,16 @@ import type {SanityDocument} from '@sanity/client'
 import {client} from '../../libs/sanity.clients'
 import {PreviewSuspense} from 'next-sanity/preview'
 import Head from 'next/head'
-import Card from '@/components/category/coding/catCard'
+import Card from '@/components/category/css/catCard'
 
 const PreviewMovies = lazy(() => import('../../components/PreviewMovies'))
 
-const query1 = groq`*[_type == "category" && filter == "how to"  && defined(slug.current)]{
+const query1 = groq`*[_type == "css"  && defined(slug.current)]{
   _id,
   title, 
   description,
   poster,
-  slug
+  "slug":slug.current,
 }`
 
 export const getStaticProps = async ({preview = false}) => {
@@ -27,7 +27,7 @@ export const getStaticProps = async ({preview = false}) => {
 }
 
 
-export default function Home({
+export default function css({
   preview,
   data1
 }: {
@@ -49,18 +49,22 @@ export default function Home({
             <div>
               <ul className="flex">
                 <li>
-                  <a href="/">
+                  <a href="">
                     Home <span className="mx-2">/</span>{' '}
                   </a>
                 </li>
-                <li>How to</li>
+                <li>
+                  <a href="">
+                  Coding <span className="mx-2">/</span>{' '}
+                  </a>
+                </li>
+                <li>css</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     <Card movies={data1} />
-    
     </>
   )
 }

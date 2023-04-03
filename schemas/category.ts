@@ -16,6 +16,11 @@ export default defineType({
       type: 'text',
     }),
     defineField({
+      name: 'filter',
+      title: 'Filter',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -24,10 +29,31 @@ export default defineType({
         maxLength: 96,
       },
     }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'tag'}}],
+    }),
+    defineField({
+      name: 'poster',
+      title: 'Poster',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
+
   preview: {
     select: {
       title: 'title',
+      description: 'description',
+      media: 'poster',
+    },
+    prepare(selection) {
+      const {description} = selection
+      return {...selection, subtitle: description && `by ${description}`}
     },
   },
 })

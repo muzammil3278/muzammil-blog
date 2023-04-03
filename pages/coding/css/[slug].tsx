@@ -6,29 +6,28 @@ import Left from '@/components/blog/left'
 import {PortableText} from '@portabletext/react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Poster from '@/components/blog/write/image'
-import Heading from '@/components/blog/write/head'
-import Banner from '@/components/coding/banner'
+import Poster from '@/components/card/blog/write/poster'
+import Heading from '@/components/card/blog/write/head'
 import Author from '@/components/blog/write/author'
+import Banner from '@/components/category/coding/banner'
 import imageUrlBuilder from "@sanity/image-url";
 const builder = imageUrlBuilder(client);
-const query = groq`*[_type == "posts" && slug.current == $slug][0]{
+const query = groq`*[_type == "css" && slug.current == $slug][0]{
   _id,
   title, 
+  description,
   body,
   poster,
-  overview,
   publishedAt,
   "slug":slug.current,
-  author->{name,bio,poster,slug},  
   category->{title,"slug": slug.current},  
+  author->{name,bio,poster,"slug":slug.current,},  
   "tag": tag[]->{title,"slug": slug.current},
-  
 }`
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await client.fetch(
-    groq`*[_type == "posts" && defined(slug.current)][]{
+    groq`*[_type == "css" && defined(slug.current)][]{
       "params": { "slug": slug.current }
     }`
   )
@@ -95,52 +94,43 @@ export default function Page({post}: PageProps) {
         <link rel="canonical" href={canonical ?? DOMAIN} />
 
       </Head>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 md:p-4 p-1">
-        <div className="col-span-2">
+
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-4 md:p-4 p-1">
+        <div className="col-span-3">
           <main className="bg-white md:p-3 p-1">
             <Poster poster={poster} title={title} />
             <div className="context pl-2">
               <Heading
                 date={publishedAt}
                 author={author.name}
-                authorlink={author.slug.current}
+                authorLink={author.slug}
                 cat={category.title}
                 catlink={category.slug}
-                title={title}
-              />
+                title={title}                 />
             </div>
-
-            <div className="p-4  leading-10 tracking-wide">
+            <div className="p-4  leading-10 tracking-wider">
               <p>
                 <PortableText value={body} />
               </p>
             </div>
-
-            <div className="tag">
+            <div className="tag pb-6">
               <ul className="flex">
                 {tag && (
                   <>
                     {tag.map((tags: any) => (
                       <li key={tags}>
-                        <Link href={tags.slug}>{tags.title}</Link>
+                        <Link href={tags.slug} className='bg-red-400 px-3 mr-4 rounded text-white py-2'>{tags.title}</Link>
                       </li>
                     ))}
                   </>
                 )}
               </ul>
             </div>
-            {/* <Banner /> */}
-            <Author
-              author={author.name}
-              poster={author.poster}
-              bio={author.bio}
-              date={publishedAt}
-            />
           </main>
         </div>
-        <div>
+        {/* <div>
           <Left />
-        </div>
+        </div> */}
       </div>
     </>
   )
@@ -150,3 +140,6 @@ interface data {
   title: string
   slug: string
 }
+
+
+

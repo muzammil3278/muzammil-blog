@@ -11,6 +11,21 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+    }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'number',
+    }),
+    defineField({
+      name: 'month',
+      title: 'Month',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -19,5 +34,25 @@ export default defineType({
         maxLength: 96,
       },
     }),
+    defineField({
+      name: 'poster',
+      title: 'Poster',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
+
+  preview: {
+    select: {
+      title: 'title',
+      description: 'description',
+      media: 'poster',
+    },
+    prepare(selection) {
+      const {description} = selection
+      return {...selection, subtitle: description && `by ${description}`}
+    },
+  },
 })

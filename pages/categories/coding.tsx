@@ -1,55 +1,65 @@
-import React from 'react'
-import Coding from '@/components/coding'
-import { lazy } from "react";
-import { groq } from "next-sanity";
-import type { SanityDocument } from "@sanity/client";
-import { client } from "../../libs/sanity.clients";
-import { PreviewSuspense } from "next-sanity/preview";
+import Coding from '@/components/category/coding/blogCard'
+import {lazy} from 'react'
+import {groq} from 'next-sanity'
+import type {SanityDocument} from '@sanity/client'
+import {client} from '../../libs/sanity.clients'
+import {PreviewSuspense} from 'next-sanity/preview'
+import Head from 'next/head'
+import Card from '@/components/category/coding/catCard'
 
-const PreviewMovies = lazy(() => import("@/components/PreviewMovies"));
+const PreviewMovies = lazy(() => import('../../components/PreviewMovies'))
 
-const query = groq`*[_type == "posts" && filter == "coding"  && defined(slug.current)]{
+const query1 = groq`*[_type == "category" && filter == "coding"  && defined(slug.current)]{
   _id,
   title, 
-  slug,
-  overview,
+  description,
   poster,
-  publishedAt,
-  author->{name,bio,image,slug},
-  category->{title,slug},
-}`;
+  "slug":slug.current,
+}`
 
-export const getStaticProps = async ({ preview = false }) => {
+export const getStaticProps = async ({preview = false}) => {
   if (preview) {
-    return { props: { preview } };
+    return {props: {preview}}
   }
+  const data1 = await client.fetch(query1)
 
-  const data = await client.fetch(query);
-  
-  return { props: { preview, data } };
-};
+  return {props: {preview, data1}}
+}
 
-export default function coding({preview,data,}: {
-  preview: Boolean;
-  data: SanityDocument[];
+
+export default function Home({
+  preview,
+  data1
+}: {
+  preview: Boolean
+  data1: SanityDocument[]
 }) {
-
   return preview ? (
-    
     <PreviewSuspense fallback="Loading...">
-      <PreviewMovies query={query} />
+      <PreviewMovies query={query1} />
     </PreviewSuspense>
   ) : (
     <>
-    <div className='bg-white'>
-    <span className="py-3 mt-5 px-6 font-bold text-lg bg-red-500 block w-full text-white">
-        Coding
-      </span>
-       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 "> 
-      
-     <Coding movies={data} />
-     </div>
-     </div>
+    <div className="bg-gray-100 h-40">
+        <div className="container mx-auto">
+          <div className="flex py-10 flex-col">
+            <div>
+              <h1 className="text-3xl text-black font-medium text-start py-2">Blog Website</h1>
+            </div>
+            <div>
+              <ul className="flex">
+                <li>
+                  <a href="">
+                    Home <span className="mx-2">/</span>{' '}
+                  </a>
+                </li>
+                <li>Coding</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <Card movies={data1} />
     </>
-  );
+  )
 }

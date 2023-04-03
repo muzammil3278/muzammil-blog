@@ -8,7 +8,7 @@ import { PreviewSuspense } from "next-sanity/preview";
 
 const PreviewMovies = lazy(() => import("@/components/PreviewMovies"));
 
-const query = groq`*[_type == "posts" && filter == "the best"  && defined(slug.current)]{
+const query = groq`*[_type == "posts" && filter == "coding"  && defined(slug.current)]{
   _id,
   title, 
   slug,
@@ -29,7 +29,7 @@ export const getStaticProps = async ({ preview = false }) => {
   return { props: { preview, data } };
 };
 
-export default function howTo({preview,data,}: {
+export default function sanity({preview,data,}: {
   preview: Boolean;
   data: SanityDocument[];
 }) {
@@ -43,7 +43,7 @@ export default function howTo({preview,data,}: {
     <>
     <div className='bg-white'>
     <span className="py-3 mt-5 px-6 font-bold text-lg bg-red-500 block w-full text-white">
-        The Best
+        Sanity
       </span>
        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 "> 
       
